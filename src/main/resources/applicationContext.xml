@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--将对象的创建交给 spring容器，在该配置文件中声明需要的对象
+    class: java类的全限定类名，通过全限定类名通过反射技术创建对象
+    id：给该对象在整个应用程序上下文中取名以方便区分对象
+    -->
+
+    <!--值的注入
+    1.setter：赋值的字段必须带有 set 方法，通过 property 子节点完成 值 的注入
+    注意：spring 默认通过无参构造方法 来完成对象的创建，当 bean 没有提供无参构造方法时，将报错
+    -->
+
+    <!--bean 属性探讨
+    abstract：是否为抽象bean（类比抽象类），用于被引用
+    parent: 类比 extend，继承父bean 的所有属性，通过 id 指明父bean
+    destroy-method: 指明该 bean 销毁时一定执行的方法，适合清理型工作，[bean 需要手动销毁]
+    init-method: 初始化 bean，适合准备型工作，在 初始化容器 的时候完成 bean 的注入[类似bean 的创建]与初始化
+    name: 别名，类似id，但是别名可以取多个，别名之间可以用 “,” 空格隔开
+    scope: 默认是 （singleton）单例 存在，即该 bean 在单个容器中只存在一个
+           prototype 原型，即要一个就新创建一个
+    lazy-init: 延迟初始化，使得只有在 获取 bean 对象的时候才初始化 bean[该bean 已注入]
+    depends-on: 在注入该 bean 之前，先注入其 depends-on 的bean
+    -->
+    <bean class="com.yr.pojo.Gril" id="gril" abstract="false" destroy-method="destory" init-method="init" name="g1 g2" scope="singleton" lazy-init="true">
+        <property name="age" value="18"/>
+        <property name="name" value="王小旭"/>
+    </bean>
+
+    <bean class="com.yr.pojo.Man" id="man" depends-on="dog" lazy-init="true">
+    </bean>
+
+    <bean class="com.yr.pojo.Dog" id="dog" lazy-init="true">
+        <property name="name" value="哮天犬"/>
+     </bean>
+
+</beans>
