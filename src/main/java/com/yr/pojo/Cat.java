@@ -1,16 +1,9 @@
 package com.yr.pojo;
 
-public class Dog {
-    private String name;
+public class Cat {
+    private  String name;
 
-   public Dog(){
-
-       System.out.println("Dog 类的无参构造函数");
-    }
-
-    public Dog(String name){
-       this.name=name;
-    }
+    private int leg;
 
     public String getName() {
         return name;
@@ -20,10 +13,19 @@ public class Dog {
         this.name = name;
     }
 
+    public int getLeg() {
+        return leg;
+    }
+
+    public void setLeg(int leg) {
+        this.leg = leg;
+    }
+
     @Override
     public String toString() {
-        return "Dog{" +
+        return "Cat{" +
                 "name='" + name + '\'' +
+                ", leg=" + leg +
                 '}';
     }
 }

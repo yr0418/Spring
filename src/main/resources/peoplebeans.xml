@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+  <bean class="com.yr.pojo.People" id="people">
+    <property name="name" value="杨睿"/>
+    <property name="age" value="20"/>
+    <!--个 给数组进行赋值 -->
+    <property name="friends">
+      <array>
+        <value>张三</value>
+        <value>李四</value>
+        <value>毛逸青</value>
+        <value>王小旭</value>
+      </array>
+    </property>
+
+    <!-- 给 list 赋值-->
+    <property name="nums">
+      <list>
+        <value>9</value>
+        <value>7</value>
+      </list>
+    </property>
+
+    <!-- 给对象赋值,内部 bean 无法被外部其他的 bean 引用，所有无需 id-->
+    <property name="car">
+      <bean class="com.yr.pojo.Car">
+        <constructor-arg name="name" value="宝马"/>
+        <constructor-arg name="price" value="111111111111"/>
+        <constructor-arg name="speed" value="200"/>
+      </bean>
+    </property>
+
+    <!--  list 赋值-->
+    <property name="catList">
+      <list>
+        <bean class="com.yr.pojo.Cat">
+          <property name="name" value="tom"/>
+          <property name="leg" value="3"/>
+        </bean>
+        <bean class="com.yr.pojo.Cat">
+          <property name="name" value="tom"/>
+          <property name="leg" value="4"/>
+        </bean>
+      </list>
+    </property>
+
+    <!-- set 赋值-->
+    <property name="dogSet">
+      <set>
+        <bean class="com.yr.pojo.Dog">
+          <property name="name" value="旺财"/>
+        </bean>
+        <bean class="com.yr.pojo.Dog">
+          <property name="name" value="哮天犬"/>
+        </bean>
+      </set>
+    </property>
+
+    <!-- map 赋值-->
+    <property name="grilMap">
+      <map>
+        <entry key="gril1">
+          <bean class="com.yr.pojo.Gril">
+            <property name="name" value="王小旭"/>
+            <property name="age" value="18"/>
+          </bean>
+        </entry>
+        <entry key="gril2">
+          <bean class="com.yr.pojo.Gril">
+            <property name="name" value="毛逸青"/>
+            <property name="age" value="18"/>
+          </bean>
+        </entry>
+      </map>
+    </property>
+  </bean>
+</beans>

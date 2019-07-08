@@ -30,6 +30,8 @@
     </bean>
 
     <bean class="com.yr.pojo.Man" id="man" depends-on="dog" lazy-init="true">
+        <!--非字面值可描述的属性（例如：对象），通过 ref 标签指明该属性对应的 bean 的 id -->
+        <property name="dog" ref="dog"/>
     </bean>
 
     <bean class="com.yr.pojo.Dog" id="dog" lazy-init="true">

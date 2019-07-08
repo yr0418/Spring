@@ -5,6 +5,16 @@ public class Man {
 
     private Integer age;
 
+    private Dog dog;
+
+    public Dog getDog() {
+        return dog;
+    }
+
+    public void setDog(Dog dog) {
+        this.dog = dog;
+    }
+
     public Man() {
         System.out.println("Man 类的无参构造函数");
     }
@@ -30,6 +40,7 @@ public class Man {
         return "Man{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
+                ", dog=" + dog +
                 '}';
     }
 }

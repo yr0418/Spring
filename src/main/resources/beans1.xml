@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <!-- 构造注入 bean
+  1.通过有参构造方法，传入参数
+  -->
+  <bean class="com.yr.pojo.Dog" id="dog">
+    <constructor-arg name="name" value="旺财"/>
+  </bean>
+
+  <!--构造注入方式1：通过名字注入 name -->
+  <bean class="com.yr.pojo.Car" id="car">
+    <constructor-arg name="name" value="宝马"/>
+    <constructor-arg name="price" value="3333333"/>
+    <constructor-arg name="speed" value="200"/>
+  </bean>
+</beans>

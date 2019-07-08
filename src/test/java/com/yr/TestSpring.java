@@ -1,7 +1,9 @@
 package com.yr;
 
+import com.yr.pojo.Car;
 import com.yr.pojo.Gril;
 import com.yr.pojo.Man;
+import com.yr.pojo.People;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -40,8 +42,20 @@ public class TestSpring {
     @Test
     public void m2(){
         //1.获取 上下文 对象，spring里面声明的对象都需要通过上下文获取
-        ApplicationContext context= new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext context= new ClassPathXmlApplicationContext("beans1.xml");
 
-        Man man=context.getBean("man",Man.class);
+        Car car=context.getBean("car", Car.class);
+
+        System.out.println(car);
+    }
+
+    @Test
+    public void m3(){
+        //1.获取 上下文 对象，spring里面声明的对象都需要通过上下文获取
+        ApplicationContext context= new ClassPathXmlApplicationContext("peoplebeans.xml");
+
+        People people=context.getBean("people", People.class);
+
+        System.out.println(people.getGrilMap());
     }
 }
